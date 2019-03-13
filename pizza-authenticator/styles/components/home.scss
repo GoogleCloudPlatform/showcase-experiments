@@ -1,0 +1,36 @@
+@import "../variables";
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.title {
+    margin-top: 50px;
+}
+
+.paragraph {
+    margin: 80px 0;
+}
+
+@media all and ( max-height: 650px ) {
+    .paragraph {
+        margin: 20px 0;
+    }
+}
+
+.experiment {
+    color: $text-color;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.6px;
+    margin-top: 20px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}

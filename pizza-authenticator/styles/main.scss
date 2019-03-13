@@ -1,0 +1,51 @@
+@import "normalize";
+@import "variables";
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: $font;
+    height: 100%;
+    width: 100%;
+    background-color: $background-color;
+}
+
+h1, p {
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    color: $title-color;
+    font-size: 31px;
+    font-weight: 700;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.75px;
+}
+
+:global {
+    .opensource {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        color: rgba( 0, 0, 0, 0.5 );
+        font-size: 20px;
+    }
+}

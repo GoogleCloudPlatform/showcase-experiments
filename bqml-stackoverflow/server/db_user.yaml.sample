@@ -1,0 +1,8 @@
+# Rename this file to `db_user.yaml` and fill in the correct user and password for your database,
+# the name of the table with the all questions and the SQL instance.
+
+env_variables:
+  DB_USER: "user"
+  DB_PASSWORD: "password"
+  DB_DATABASE: "name"
+  DB_INSTANCE: "instance"

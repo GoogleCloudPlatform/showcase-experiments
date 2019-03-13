@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url( "https://storage.googleapis.com/gweb-showcase.appspot.com/webfonts/fa-brands-400.eot" ) ;
+    src: url("https://storage.googleapis.com/gweb-showcase.appspot.com/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+         url("https://storage.googleapis.com/gweb-showcase.appspot.com/webfonts/fa-brands-400.woff2") format("woff2"),
+         url("https://storage.googleapis.com/gweb-showcase.appspot.com/webfonts/fa-brands-400.woff") format("woff"),
+         url("https://storage.googleapis.com/gweb-showcase.appspot.com/webfonts/fa-brands-400.ttf") format("truetype"),
+         url("https://storage.googleapis.com/gweb-showcase.appspot.com/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
+
+  .fab {
+    font-family: 'Font Awesome 5 Brands'; }

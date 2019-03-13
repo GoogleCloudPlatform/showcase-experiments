@@ -1,0 +1,222 @@
+.page {
+    align-items: center;
+    background-position: center -230px;
+    background-repeat: no-repeat;
+    background-size: 120% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+
+    @media all and ( min-width: 500px ) {
+        background-position: center -540px;
+        background-size: 800px auto;
+        padding: 10px;
+    }
+}
+
+.boxes {
+    width: 100%;
+
+    @media all and ( min-width: 500px ) {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 1000px;
+    }
+}
+
+.box {
+    background-color: white;
+    border-radius: 4px;
+    margin: 0 0 20px 0;
+    padding: 20px;
+    width: 100%;
+
+    .title {
+        margin: 0px 0 15px;
+        text-align: center;
+    }
+
+    @media all and ( max-width: 500px ) {
+        &.desktop {
+            display: none;
+        }
+    }
+
+    @media all and ( min-width: 500px ) {
+        margin: 10px;
+        width: calc( 50% - 20px );
+
+        &.fullsize {
+            width: 100%;
+        }
+    }
+}
+
+.selection {
+    display: flex;
+    flex-direction: row;
+}
+
+.option {
+    border-radius: 20px;
+    border: 1px solid var( --highlight-color-soft );
+    color: var( --highlight-color-soft );
+    flex: 1 1 100%;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+
+    &.selected {
+        background-color: var( --highlight-color-soft );
+        color: white;
+    }
+
+    &.dropdownOption {
+        position: relative;
+
+        .icon {
+            position: absolute;
+            right: 7px;
+            top: 6px;
+        }
+    }
+}
+
+.spacer {
+    flex: 0 0 5px;
+}
+
+.answer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: center;
+    width: 30%;
+}
+
+.resultType {
+    color: rgba( 255, 255, 255, 0.8 );
+    font-size: 15px;
+    letter-spacing: 0.27px;
+    text-align: center;
+}
+
+.resultValue {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.resultUnit {
+    font-size: 60%;
+    font-weight: 300;
+}
+
+.dropdown {
+    align-items: center;
+    background-color: rgba( 0, 0, 0, 0.25 );
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    .dropdownWrapper {
+        align-items: center;
+        background-color: white;
+        border-radius: 21px;
+        border: 1px solid var ( --highlight-color-soft );
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-start;
+        overflow: hidden;
+        width: 100%;
+
+        @media all and ( min-width: 500px ) {
+            max-height: 800px;
+            max-width: 400px;
+        }
+    }
+
+    .inputWrapper {
+        align-items: center;
+        border-bottom: 1px solid gray;
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 60px;
+        height: 60px;
+        justify-content: flex-start;
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .input {
+        background-color: white;
+        border: none;
+        font-size: 16px;
+        height: 100%;
+        outline: none;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .list {
+        background-color: white;
+        border-radius: 4px;
+        flex: 1 1 100%;
+        overflow: scroll;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .choice {
+        align-items: center;
+        color: rgba( 0, 0, 0, 0.8 );
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        font-size: 16;
+        height: 40px;
+        padding: 0px 20px;
+
+        & .icon {
+            margin-left: 10px;
+            display: none;
+        }
+    }
+
+    .choice.chosen {
+        color: var( --highlight-color-soft );
+
+        & .icon {
+            display: inline-block;
+        }
+    }
+}
+
+.share {
+    margin-top: 30px;
+}
+
+@media all and ( min-width: 500px ) {
+    .mobile {
+        display: none;
+    }
+}

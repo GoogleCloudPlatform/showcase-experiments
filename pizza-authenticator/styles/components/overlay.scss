@@ -1,0 +1,30 @@
+@import "../variables";
+
+.page {
+    align-items: center;
+    background-color: $background-color;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.image {
+    margin-bottom: 50px;
+}
+
+:global {
+    .overlay-appear {
+        opacity: 0.01;
+    }
+
+    .overlay-appear.overlay-appear-active {
+        opacity: 1;
+        transition: opacity 500ms linear;
+    }
+}

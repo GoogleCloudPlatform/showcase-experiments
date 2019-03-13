@@ -1,0 +1,76 @@
+$button-size: 70px;
+
+.trigger {
+    border-radius: 100%;
+    bottom: 70px;
+    cursor: pointer;
+    height: $button-size;
+    left: calc( 50% - #{ $button-size / 2 } );
+    position: absolute;
+    width: $button-size;
+
+    &:before, &:after {
+        border-radius: 100%;
+        content: " ";
+        left: 50%;
+        position: absolute;
+        position: absolute;
+        top: 50%;
+        transform: translate( -50%, -50% );
+    }
+
+    &:before {
+        border: 3px solid white;
+        height: 100%;
+        width: 100%;
+    }
+
+    &:after {
+        background-color: white;
+        height: 80%;
+        width: 80%;
+    }
+}
+
+.background,
+.container,
+.loadingContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.background {
+    background-color: black;
+}
+
+.container {
+    position: relative;
+}
+
+.pendingImage,
+.loadingContainer {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate( -50%, -50% ) rotate( 0 );
+    }
+    100% {
+        transform: translate( -50%, -50% ) rotate( 360deg );
+    }
+}
+
+.upperMouth {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.lowerMouth {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,6 @@
+Makefile
+README.md
+.git
+.gitignore
+app_env_sample.yaml
+*.map

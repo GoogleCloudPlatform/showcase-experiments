@@ -1,0 +1,45 @@
+:root {
+    --highlight-color: #1A73E8
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Google Sans", sans-serif;
+}
+
+h1, p {
+    padding: 0 20px;
+}
+
+p {
+    font-size: 16px;
+    color: #636363;
+    letter-spacing: 0.8px;
+    text-align: center;
+}
+
+:global #root {
+    width: 100%;
+    height: 100%;
+}
+
+:global .opensource {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: rgba( 0, 0, 0, 0.8 );
+    font-size: 30px;
+}
+
+h1 {
+    margin: 0;
+}
+
+

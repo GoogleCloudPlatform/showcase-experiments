@@ -1,0 +1,168 @@
+@import "../variables";
+
+.page {
+    height: 100%;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 700px;
+}
+
+.pizzaPreview {
+    background-color: #bbb;
+    background-size: cover;
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+    margin-top: 50px;
+}
+
+.buttonContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 50%;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.list {
+    margin-top: 30px;
+}
+
+.listItem {
+    margin-bottom: 20px;
+}
+
+.listPercent {
+    color: #3a3a3a;
+    font-family: Roboto, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+
+    &::after {
+        content: "%";
+        font-size: 22px;
+        margin-left: 4px;
+    }
+}
+
+.listName {
+    color: #7f7f7f;
+    font-size: 14px;
+    letter-spacing: 0.74;
+}
+
+.listItem:first-child {
+    .listPercent {
+        font-size: 70px;
+        letter-spacing: -1.13px;
+    }
+}
+
+.noPizzaContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+
+    h1 {
+        margin: 50px 0 20px 0;
+    }
+}
+
+.validPizza {
+    background-color: #f6f6f6;
+    padding: 0;
+}
+
+.graphContainer {
+    height: 300px;
+    position: relative;
+
+    &:before {
+        content: " ";
+        background-color: $background-color;
+        width: 500px;
+        height: 500px;
+        border-radius: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate( - 50%, -280px );
+    }
+
+    .iconWrapper {
+        width: 216px;
+        height: 216px;
+        background-color: white;
+        border-radius: 100%;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translate( -50%, 0 );
+
+        .child {
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            top: 18px;
+            left: 18px;
+        }
+
+        .shade {
+            border-radius: 100%;
+            box-shadow: 0px 32px 21px rgba( 148, 99, 49, 0.08 );
+        }
+
+        .photo {
+            width: 56px;
+            height: 56px;
+            top: 20px;
+            left: 190px;
+            border-radius: 100px;
+        }
+
+        canvas {
+            width: 190px;
+            height: 190px;
+            position: absolute;
+            top: 18px;
+            left: 18px;
+        }
+    }
+}
+
+.experiment {
+    position: absolute;
+    top: 20px;
+}
+
+.validPizzaPage {
+    h2 {
+        margin-top: 10px;
+        font-size: 31px;
+        text-align: center;
+        font-weight: 700;
+        color: #644034;
+        letter-spacing: -0.7px;
+        margin-bottom: 40px;
+
+        span {
+            color: $button-color;
+        }
+    }
+
+    p {
+        letter-spacing: 1px;
+    }
+}
+
+.share {
+    margin-bottom: 20px;
+}
+

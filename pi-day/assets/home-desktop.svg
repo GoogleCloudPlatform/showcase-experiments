@@ -1,0 +1,36 @@
+
+<svg width="1186px" height="384px" viewBox="0 0 1186 384" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="desktop_experiment_single" transform="translate(-97.000000, 0.000000)">
+            <g id="particles" transform="translate(99.000000, -63.000000)">
+                <circle id="Oval" fill="#EFEFEF" cx="577.625326" cy="64.6253263" r="17.6253263"></circle>
+                <circle id="Oval-Copy-12" fill="#EFEFEF" cx="425.956583" cy="333.625326" r="17.6253263"></circle>
+                <circle id="Oval-Copy-18" fill="#EFEFEF" cx="1085.62533" cy="218.625326" r="17.6253263"></circle>
+                <circle id="Oval-Copy-15" fill="#EFEFEF" cx="188.78809" cy="245.78809" r="8.78808953"></circle>
+                <circle id="Oval-Copy-10" stroke="#E9E9E9" stroke-width="2" cx="840.808596" cy="224.808596" r="48.8085958"></circle>
+                <circle id="Oval-Copy-13" stroke="#E9E9E9" stroke-width="2" cx="181.808596" cy="48.8085958" r="48.8085958"></circle>
+                <circle id="Oval-Copy-11" stroke="#E9E9E9" stroke-width="2" cx="707.981121" cy="95.9811206" r="18.9811206"></circle>
+                <circle id="Oval-Copy-17" stroke="#E9E9E9" stroke-width="2" cx="1137.98112" cy="284.981121" r="18.9811206"></circle>
+                <circle id="Oval-Copy-2" fill="#9FC1F9" cx="821.101074" cy="317.101074" r="6.10107448"></circle>
+                <circle id="Oval-Copy-14" fill="#9FC1F9" cx="306.101074" cy="383.101074" r="6.10107448"></circle>
+                <circle id="Oval-Copy-8" fill="#FF4181" cx="483.067383" cy="403.067383" r="4.06738299"></circle>
+                <circle id="Oval-Copy-19" fill="#FF4181" cx="1023.06738" cy="281.067383" r="4.06738299"></circle>
+                <circle id="Oval-Copy-3" fill="#FABB07" cx="503.812663" cy="86.8126631" r="8.81266313"></circle>
+                <circle id="Oval-Copy-16" fill="#FABB07" cx="961.812663" cy="203.812663" r="8.81266313"></circle>
+                <circle id="Oval-Copy-4" fill="#31A852" cx="660.067383" cy="86.067383" r="4.06738299"></circle>
+                <circle id="Oval-Copy-9" fill="#31A852" cx="189.067383" cy="160.067383" r="4.06738299"></circle>
+                <circle id="Oval-Copy-5" fill="#6A1B9A" cx="455.101074" cy="194.101074" r="6.10107448"></circle>
+                <rect id="Rectangle" fill="#438AFF" x="758" y="138" width="17.6253263" height="17.6253263"></rect>
+                <rect id="Rectangle-Copy" fill="#EFEFEF" x="437" y="115" width="24.4042979" height="24.4042979"></rect>
+                <rect id="Rectangle-Copy-4" fill="#EFEFEF" x="959" y="96" width="24.4042979" height="24.4042979"></rect>
+                <rect id="Rectangle-Copy-3" fill="#EFEFEF" x="288" y="103" width="24.4042979" height="24.4042979"></rect>
+                <polygon id="Rectangle-Copy-2" stroke="#E9E9E9" stroke-width="2" points="280 208.265188 374.290967 183 399.556155 277.290967 305.265188 302.556155"></polygon>
+                <polygon id="Rectangle-Copy-5" stroke="#E9E9E9" stroke-width="2" points="1068.5729 41 1182.67251 71.5728991 1152.09961 185.672512 1038 155.099613"></polygon>
+                <polygon id="Star" fill="#66BAFF" points="373.011551 123.044914 373 116 379.095299 119.532461 385.202149 123.044914 379.095299 126.557367 373 130.089828"></polygon>
+                <polygon id="Star-Copy-4" stroke="#E9E9E9" stroke-width="2" points="771.863044 399.199273 772.577867 354 811.287824 377.345761 850.074131 400.564453 810.501131 422.415378 771 444.39596"></polygon>
+                <polygon id="Star-Copy-5" stroke="#E9E9E9" stroke-width="2" points="0.863043659 164.199273 1.57786734 119 40.2878239 142.345761 79.0741311 165.564453 39.5011308 187.415378 -7.10542736e-15 209.39596"></polygon>
+                <polygon id="Star-Copy-6" fill="#EFEFEF" points="940.484512 335.930081 933 328.470074 943.211781 325.751774 953.414593 323 950.66282 333.202812 947.944519 343.414593"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

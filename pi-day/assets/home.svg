@@ -1,0 +1,27 @@
+
+<svg width="375px" height="288px" viewBox="0 0 375 288" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pi_1_load2">
+            <g id="particles" transform="translate(-30.000000, -11.000000)">
+                <circle id="Oval" fill="#EFEFEF" cx="180" cy="13" r="13"></circle>
+                <circle id="Oval-Copy-12" fill="#EFEFEF" cx="95.6780741" cy="222.181631" r="13"></circle>
+                <circle id="Oval-Copy-9" fill="#EFEFEF" cx="402" cy="78" r="13"></circle>
+                <circle id="Oval-Copy-10" stroke="#E9E9E9" stroke-width="2" cx="382" cy="129" r="36"></circle>
+                <circle id="Oval-Copy-11" stroke="#E9E9E9" stroke-width="2" cx="284" cy="34" r="14"></circle>
+                <circle id="Oval-Copy-2" fill="#9FC1F9" cx="356.5" cy="206.5" r="4.5"></circle>
+                <circle id="Oval-Copy-14" fill="#9FC1F9" cx="62.5" cy="256.5" r="4.5"></circle>
+                <circle id="Oval-Copy" fill="#E0392C" cx="384.5" cy="37.5" r="4.5"></circle>
+                <circle id="Oval-Copy-8" fill="#FF4181" cx="147" cy="277" r="3"></circle>
+                <circle id="Oval-Copy-3" fill="#FABB07" cx="133.5" cy="27.5" r="6.5"></circle>
+                <circle id="Oval-Copy-4" fill="#31A852" cx="249" cy="27" r="3"></circle>
+                <circle id="Oval-Copy-5" fill="#6A1B9A" cx="97.5" cy="106.5" r="4.5"></circle>
+                <rect id="Rectangle" fill="#438AFF" x="307" y="59" width="13" height="13"></rect>
+                <rect id="Rectangle-Copy" fill="#EFEFEF" x="94" y="46" width="18" height="18"></rect>
+                <rect id="Rectangle-Copy-2" stroke="#E9E9E9" stroke-width="2" transform="translate(44.909185, 158.090815) rotate(-15.000000) translate(-44.909185, -158.090815) " x="8.90918463" y="122.090815" width="72" height="72"></rect>
+                <polygon id="Star" fill="#66BAFF" transform="translate(52.000000, 70.000000) rotate(-270.000000) translate(-52.000000, -70.000000) " points="52 72.99148 46.8038476 73 49.4093023 68.50426 52 64 54.5906977 68.50426 57.1961524 73"></polygon>
+                <polygon id="Star-Copy-4" stroke="#E9E9E9" stroke-width="2" transform="translate(346.634527, 263.480197) rotate(-269.000000) translate(-346.634527, -263.480197) " points="346.634527 282.675527 313.292549 282.730197 330.010884 253.882532 346.634527 224.980197 363.258171 253.882532 379.976505 282.730197"></polygon>
+                <polygon id="Star-Copy-3" fill="#EFEFEF" transform="translate(380.727922, 200.727922) rotate(-315.000000) translate(-380.727922, -200.727922) " points="380.727922 205.215142 372.933693 205.227922 376.841876 198.484312 380.727922 191.727922 384.613969 198.484312 388.522151 205.227922"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
