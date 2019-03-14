@@ -10,4 +10,4 @@ parallel.
 * **dev_apperserver.py**: This is a local webserver serving your files. Make sure the [Google Cloud SDK](https://cloud.google.com/sdk/)
 is installed. Every change in backend code (`main.go`) has to be pushed to the webserver by calling `yarn build-server`
 
-Point your browser to [localhost:8080/experiment/bqml-stackoverflow](http://localhost:8080/experiment/bqml-stackoverflow).
+Point your browser to [localhost:8080/experiment/pi](http://localhost:8080/experiment/pi).
