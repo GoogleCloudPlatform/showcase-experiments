@@ -22,7 +22,6 @@ let coverComposition: Composition;
 let redComposition: Composition;
 let redRadius: number;
 
-
 export async function compose( digits: number, size: number ) {
     await seedPi( digits );
 
@@ -40,10 +39,12 @@ export async function renderPng( digit: number, size: number ): Promise<Blob> {
 
     render( context, size, digit, 0.5 );
 
+
     return new Promise<Blob>( resolve => {
         canvas.toBlob( blob => {
+            console.log( "hi" );
             if ( blob ) resolve( blob );
-        } );
+        }, "image/png" );
     } );
 }
 
@@ -137,5 +138,25 @@ function render( context: CanvasRenderingContext2D, size: number, digit: number,
     composition.render( context, t );
 
     context.restore();
+}
+
+// To blob pollyfil for Edge
+if ( ! HTMLCanvasElement.prototype.toBlob ) {
+    Object.defineProperty( HTMLCanvasElement.prototype, "toBlob", {
+        value: function (callback: ( blob: Blob ) => void, type: string, quality: number) {
+            let canvas = this;
+            setTimeout( function() {
+                var binStr = atob( canvas.toDataURL(type, quality).split(',')[1] ),
+                len = binStr.length,
+                arr = new Uint8Array(len);
+
+                for (var i = 0; i < len; i++ ) {
+                    arr[i] = binStr.charCodeAt(i);
+                }
+
+                callback( new Blob( [arr], {type: type || 'image/png'} ) );
+            } );
+        }
+   } );
 }
 

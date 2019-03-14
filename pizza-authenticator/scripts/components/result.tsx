@@ -20,8 +20,9 @@ import style from "../../styles/components/result.scss";
 import yuckImage from "../../assets/dislike.gif";
 import { Evaluation, getResult, isPizza } from "../services/evaluate";
 import { ValidPizzaResult } from "./result-valid-pizza";
-import { CameraButton } from "./button-camera";
 import { UploadButton } from "./button-upload";
+import { gaEvent } from "../services/ga";
+import { UnregisterCallback } from "history";
 
 type ResultProps = RouteComponentProps<{ id: string }>;
 
@@ -41,10 +42,20 @@ export class Result extends React.Component<ResultProps, ResultState> {
         hasNoResult: false,
     };
 
+    private unlisten: UnregisterCallback;
+
     constructor( props: ResultProps ) {
         super( props );
 
-        getResult( props.match.params.id ).then( ( response ) => {
+        this.unlisten = props.history.listen( () => {
+            this.update();
+        } );
+
+        this.update();
+    }
+
+    private update() {
+        getResult( this.props.match.params.id ).then( ( response ) => {
             this.setState( {
                 response,
                 notPizza: !isPizza( response ),
@@ -52,6 +63,14 @@ export class Result extends React.Component<ResultProps, ResultState> {
                 hasNoResult: !response
             } );
         } );
+    }
+
+    componentDidMount() {
+        gaEvent( { event: "pageview", path: location.pathname } );
+    }
+
+    componentWillUnmount() {
+        this.unlisten();
     }
 
     render(): JSX.Element {
@@ -89,8 +108,7 @@ const NoPizzaResult = React.memo( () => (
         <p>That doesn't seem like Pizza at all.</p>
 
         <div className={ style.buttonContainer }>
-            <CameraButton label={ "Check different slice" } />
-            <UploadButton label={ "Check different slice" } />
+            <UploadButton label={ "CHECK DIFFERENT SLICE" } />
         </div>
     </div>
 ) );

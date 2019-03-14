@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import React from "react";
+import classnames from "classnames";
 import { RouteComponentProps } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -21,6 +22,7 @@ import sharedStyles from "../../styles/shared.css";
 import { compose, renderPng, renderCanvasCover } from "../render/chip";
 import { ShareButton } from "./share-button";
 import { formatNumber } from "../services/utils";
+import { gaEvent } from "../services/ga";
 
 
 interface ResultState {
@@ -48,6 +50,8 @@ export class Result extends React.Component<RouteComponentProps, ResultState> {
     }
 
     async componentDidMount() {
+        gaEvent( { event: "pageview", path: location.pathname } );
+
         const digits = parseInt( this.state.digits );
 
         await compose( digits, 1000 )
@@ -64,8 +68,6 @@ export class Result extends React.Component<RouteComponentProps, ResultState> {
             <div className={ styles.page }>
                 <div className={ `${ sharedStyles.experiment } ${ styles.experiment }` }>
                     <a href="https://showcase.withgoogle.com/experiments">a Google Cloud experiment</a>
-                    &nbsp;&bull;&nbsp;
-                    <a href="https://policies.google.com/privacy?hl=en-US" target="_blank">Privacy</a>
                 </div>
 
                 <div className={ styles.chipWrapper }>
@@ -84,10 +86,14 @@ export class Result extends React.Component<RouteComponentProps, ResultState> {
                 </h1>
 
                 <Link to="/experiment/pi/generate/" className={ `${ sharedStyles.button } ${ styles.again }` }>
-                    Try Again
+                    TRY AGAIN
                 </Link>
 
                 <ShareButton classes={ styles.share } />
+
+                <div className={ classnames( sharedStyles.experiment, sharedStyles.privacy, styles.experiment ) }>
+                    <a href="https://policies.google.com/privacy?hl=en-US" target="_blank">Privacy</a>
+                </div>
             </div>
         );
     }

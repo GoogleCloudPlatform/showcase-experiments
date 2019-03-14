@@ -7,6 +7,9 @@ interface ShareButtonProps {
     text?: string;
 }
 
+const tweetCopy = "How can I predict when the Stackoverflow community will reply to my question? Use " +
+    "the BQML Analyzer to find out at g.co/showcase/bqml #showcaseexperiment @GoogleCloud."
+
 export class ShareButton extends React.Component<ShareButtonProps> {
     state = { active: false }
 
@@ -14,10 +17,10 @@ export class ShareButton extends React.Component<ShareButtonProps> {
         return (
             <div className={ `${ sharedStyles.button } ${ this.props.classes || "" } ${ this.state.active ? sharedStyles.active : "" }` }
                  onClick={ () => this.setState( { active: true } ) }>
-                Share
+                SHARE
                 <div className={ sharedStyles.buttonShareContainer }>
                     <div className={ sharedStyles.buttonShareOption }
-                         onClick={ () => tweet( this.props.text || "Check out this out" ) }>
+                         onClick={ () => tweet( tweetCopy ) }>
                         <i className="fab fa-twitter"></i>
                     </div>
                     <div className={ sharedStyles.buttonShareOption }

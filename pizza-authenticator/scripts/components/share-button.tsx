@@ -8,9 +8,11 @@ interface ShareButtonProps {
     text?: string;
 }
 
+const tweetCopy = "Can a machine tell the difference between authentic New York Pizza, Chicago deep " +
+    "dish, and everything in between? Find out at g.co/showcase/pizzaauth. @GoogleCloud #showcaseexperiments";
+
 export class ShareButton extends React.Component<ShareButtonProps> {
     state = { active: false };
-
 
     render() {
         const classes = classnames(
@@ -22,10 +24,10 @@ export class ShareButton extends React.Component<ShareButtonProps> {
         return (
             <div className={ classes }
                  onClick={ () => this.setState( { active: true } ) }>
-                Share
+                SHARE
                 <div className={ sharedStyles.buttonShareContainer }>
                     <div className={ sharedStyles.buttonShareOption }
-                         onClick={ () => tweet( this.props.text || "Check out this out" ) }>
+                         onClick={ () => tweet( tweetCopy ) }>
                         <i className="fab fa-twitter"></i>
                     </div>
                     <div className={ sharedStyles.buttonShareOption }

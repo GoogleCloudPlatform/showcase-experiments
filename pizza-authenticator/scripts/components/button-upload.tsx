@@ -35,16 +35,16 @@ class Button extends React.Component<RouteComponentProps & { label: string, inve
 
     render() {
         const { label, inverse } = this.props;
-        const classes = classnames( sharedStyle.button, sharedStyle.desktop, inverse ? sharedStyle.inverse : null );
+        const classes = classnames( sharedStyle.button, inverse ? sharedStyle.inverse : null );
 
         return (
             <>
-                { this.state.hasOverlay ? <Overlay /> : null }
-
                 <div className={ classes }
                      onClick={ () => this.uploadFile() }>
                     { label }
                 </div>
+
+                { this.state.hasOverlay ? <Overlay /> : null }
             </>
         );
     }
@@ -52,17 +52,30 @@ class Button extends React.Component<RouteComponentProps & { label: string, inve
     private uploadFile() {
         const input = document.createElement( "input" );
         input.type = "file";
+        input.accept = "image/*";
+        input.style.position = "fixed";
+        input.style.top = "0px";
+        input.style.left = "10000px";
+
+        document.body.appendChild( input );
+
         input.click();
-        input.addEventListener( "input", () => {
+        input.addEventListener( "change", () => {
 
             if ( input.files ) {
                 this.setState( { hasOverlay: true } );
 
                 evaluate( input.files[ 0 ] )
                     .then( ( result: Evaluation.Response ) => {
+                        document.body.removeChild( input );
+
+                        this.setState( { hasOverlay: false } );
                         this.props.history.push( fullRoute( `/result/${ result.id }` ) );
                     } )
                     .catch( ( error: HttpError ) => {
+                        document.body.removeChild( input );
+                        this.setState( { hasOverlay: false } );
+
                         if ( error.status === 500 && error.error && error.error.indexOf( "warmed up" ) > -1 ) {
                             this.props.history.push( fullRoute( `/error/${ FailureState.WARM_UP }` ) );
                         } else {

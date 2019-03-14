@@ -62,12 +62,12 @@
 }
 
 .again {
-    bottom: 10px;
+    bottom: 30px;
     background-color: transparent;
     color: var( --highlight-color );
 }
 
 .share {
-    bottom: 70px;
+    bottom: 90px;
 }
 

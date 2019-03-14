@@ -20,25 +20,25 @@ import homeImage from "../../assets/home.svg";
 import logoImage from "../../assets/logo.svg";
 import styles from "../../styles/home.css";
 import sharedStyles from "../../styles/shared.css";
+import { gaEvent } from "../services/ga";
 
 export const Home: React.SFC = () => (
     <div className={ styles.page }>
+        { gaEvent( { event: "pageview", path: location.pathname } ) }
+
         <div className={ styles.logoContainer }>
             <img src={ homeImage } width="100%" className={ sharedStyles.mobile } />
             <img src={ homeDesktopImage } width="100%" className={ sharedStyles.desktop } />
             <img src={ logoImage } className={ styles.logo } />
         </div>
 
-        <h1 className={ styles.title }>Pi Day</h1>
+        <h1 className={ styles.title }>A Pi Day Celebration</h1>
         <p className={ styles.description }>
-            In honor of Pi day we’ve calculated 31.4 trillion digits of Pi.
-            Yep, that’s a world record!
-            <br/><br/>
-            Pick any digit in Pi to generate a custom art piece. Don't worry,
-            we won't store anything you enter.
+            We have 31.4 trillion digits to celebrate! In honor of Pi Day, we’ve built you a tool
+            that can generate 31.4 trillion unique pieces of graphic art in real-time.
         </p>
 
-        <Link to="/experiment/pi/generate" className={ `${ sharedStyles.button } ${ styles.button }` }>Get started</Link>
+        <Link to="/experiment/pi/generate" className={ `${ sharedStyles.button } ${ styles.button }` }>MAKE ART</Link>
 
         <div className={ `${ sharedStyles.experiment } ${ styles.experiment }` }>
             <a href="https://showcase.withgoogle.com/experiments">a Google Cloud experiment</a>

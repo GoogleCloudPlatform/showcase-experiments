@@ -15,7 +15,7 @@
 import { BehaviorSubject } from "rxjs";
 
 const subject = new BehaviorSubject<MediaStream | null>( null );
-const MEDIA_OPTIONS = {
+const MEDIA_OPTIONS: MediaStreamConstraints = {
     audio: false,
     video: {
         facingMode: { exact: "environment" }
@@ -27,6 +27,10 @@ const MEDIA_OPTIONS_FALLBACK = {
 };
 
 export function startCamera(): Promise<void> {
+    if ( subject.value ) {
+        return Promise.resolve();
+    }
+
     if ( hasCamera() ) {
         return navigator.mediaDevices.getUserMedia( MEDIA_OPTIONS )
             .then( ( value: MediaStream ) => {

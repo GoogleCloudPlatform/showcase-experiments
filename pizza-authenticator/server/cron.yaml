@@ -1,0 +1,4 @@
+cron:
+- description: "Warming up the ML model"
+  url: /experiment/pizza-authenticator/api/warm-up/
+  schedule: every 10 mins

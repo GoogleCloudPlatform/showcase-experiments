@@ -35,7 +35,10 @@ export class VideoOutlet extends React.Component<VideoOutletProps> {
     render(): JSX.Element {
         return (
             <div className={ styles.container }>
-                <video ref={ r => this.videoElement = r || undefined } autoPlay={ true } />
+                <video ref={ r => this.videoElement = r || undefined }
+                       autoPlay={ true }
+                       playsInline={ true }
+                       muted={ true }/>
             </div>
         );
     }

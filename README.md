@@ -14,7 +14,7 @@ cd showcase-experiments
 Now open one of the sub-directories to view a specific experiment, for example:
 
 ``` shell
-cd montage-maker
+cd pizza-authenticator
 open .
 ```
 

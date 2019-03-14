@@ -28,8 +28,8 @@ const FACEBOOK_POPUP_SETTINGS = "height=500,width=700";
 
 const input = document.createElement( "input" );
 
-export function tweet( text: string, url: string = document.location.href ) {
-    const params = `text=${ encodeURIComponent( text ) }&url=${ encodeURIComponent( url ) }&via=GoogleCloudPlatform`;
+export function tweet( text: string ) {
+    const params = `text=${ encodeURIComponent( text ) }`;
 
     window.open( `${ TWITTER_SHARE_URL }${ params }`, "_blank", TWITTER_POPUP_SETTINGS );
 }
@@ -92,7 +92,7 @@ export function renderShareableAsset( response: Evaluation.Response ): Promise<B
     context.fillText( formatSecondary( values[ 2 ] ), canvas.width / 2, 550 );
 
     context.font = `15px "Google Sans"`;
-    context.fillText( "a Google Cloud Experiment", canvas.width / 2, 615 );
+    context.fillText( "a Google Cloud experiment", canvas.width / 2, 615 );
 
     const image = new Image();
     image.crossOrigin = "anonymous";

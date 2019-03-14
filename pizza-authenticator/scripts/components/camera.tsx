@@ -27,6 +27,7 @@ import { getStreamUpdate, startCamera, stopCamera } from "../services/webcam";
 import { FailureState } from "./failure";
 import { Overlay } from "./overlay";
 import { VideoOutlet } from "./video-outlet";
+import { gaEvent } from "../services/ga";
 
 
 interface CameraState {
@@ -50,6 +51,8 @@ export class Camera extends React.Component<RouteChildrenProps, CameraState> {
         } );
 
         startCamera();
+
+        gaEvent( { event: "pageview", path: location.pathname } );
     }
 
     componentWillUnmount() {

@@ -20,6 +20,7 @@ import styles from "../../styles/components/failure.scss";
 import yuckImage from "../../assets/dislike.gif";
 import { Link } from "react-router-dom";
 import { fullRoute } from "../config";
+import { gaEvent } from "../services/ga";
 
 type Props = RouteComponentProps<{ id?: FailureState }>;
 
@@ -30,12 +31,14 @@ export enum FailureState {
 
 export const Failure: React.SFC<Props> = ( props: Props ) => (
     <div className={ styles.page }>
+        { gaEvent( { event: "pageview", path: location.pathname } ) }
+
         <img src={ yuckImage } width="250"/>
 
         <p className={ styles.warning }>{ getErrorMessage( props.match.params.id ) }</p>
 
         <Link to={ fullRoute( "/" ) } className={ classnames( sharedStyle.button, styles.button ) }>
-            Home
+            HOME
         </Link>
 
         <div className={ sharedStyle.experiment }>

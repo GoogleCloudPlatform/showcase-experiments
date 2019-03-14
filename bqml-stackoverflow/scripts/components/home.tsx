@@ -30,11 +30,11 @@ export class Home extends React.Component {
                 <h1>BQML Analyzer</h1>
 
                 <p>
-                    Search through stack overflow data to predict when your questions will be answered.
+                    Search through Stack Overflow data to predict when your questions will be answered.
                 </p>
 
                 <Link to="/experiment/bqml-stackoverflow/insights" className={ sharedStyles.button }>
-                    Let's go
+                    LET'S GO
                 </Link>
 
                 <div className="experiment">

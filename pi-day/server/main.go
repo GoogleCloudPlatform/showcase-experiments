@@ -26,8 +26,8 @@ const assetURL = "some/path/here/%s.png"
 func main() {
 	defaultTags := &OgTags{
 		Tags: []OgTag{
-			OgTag{Key: "og:image", Value: "https://storage.googleapis.com/gweb-showcase.appspot.com/pi-share.png"},
-			OgTag{Key: "og:image:secure_url", Value: "https://storage.googleapis.com/gweb-showcase.appspot.com/pi-share.png"},
+			OgTag{Key: "og:image", Value: "https://storage.googleapis.com/gweb-showcase.appspot.com/pi-share-2.png"},
+			OgTag{Key: "og:image:secure_url", Value: "https://storage.googleapis.com/gweb-showcase.appspot.com/pi-share-2.png"},
 		},
 	}
 

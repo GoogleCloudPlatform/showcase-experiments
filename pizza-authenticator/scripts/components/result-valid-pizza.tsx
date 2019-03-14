@@ -19,8 +19,7 @@ import pizzaNY from "../../assets/pizza-newyork.svg";
 import pizzaOther from "../../assets/pizza-other.svg";
 import style from "../../styles/components/result.scss";
 import sharedStyles from "../../styles/shared.scss";
-import { Evaluation, extractValues, PizzaLabel } from "../services/evaluate";
-import { CameraButton } from "./button-camera";
+import { Evaluation, extractValues, PizzaLabel, ResultValue } from "../services/evaluate";
 import { UploadButton } from "./button-upload";
 import { ShareButton } from "./share-button";
 
@@ -35,22 +34,13 @@ export class ValidPizzaResult extends React.Component<ValidPizzaResultProps> {
     private canvasRef: React.RefObject<HTMLCanvasElement> = React.createRef();
 
     componentDidMount() {
-        if ( this.canvasRef.current ) {
-            const canvas = this.canvasRef.current;
-            const context = canvas.getContext( "2d" )!;
-
-            canvas.width = canvas.height = this.CANVAS_SIZE;
-
-            const { response } = this.props;
-            const values = extractValues( response );
-
-            this.drawSlice( context, 0, ( 100 - values[ 0 ].value ) / 100 );
-        }
+        const values = extractValues( this.props.response );
+        this.renderCanvas( values );
     }
 
     render() {
-        const { response } = this.props;
-        const values = extractValues( response );
+        const values = extractValues( this.props.response );
+        this.renderCanvas( values );
 
         return (
             <div className={ style.validPizzaPage}>
@@ -78,11 +68,21 @@ export class ValidPizzaResult extends React.Component<ValidPizzaResultProps> {
                 <div className={ style.buttonContainer }>
                     <ShareButton classes={ style.share } />
 
-                    <CameraButton label={ "Check another slice" } inverse={ true } />
-                    <UploadButton label={ "Check another slice" } inverse={ true }/>
+                    <UploadButton label={ "CHECK ANOTHER SLICE" } inverse={ true }/>
                 </div>
             </div>
         );
+    }
+
+    private renderCanvas( values: ResultValue[] ) {
+        if ( this.canvasRef.current ) {
+            const canvas = this.canvasRef.current;
+            const context = canvas.getContext( "2d" )!;
+
+            canvas.width = canvas.height = this.CANVAS_SIZE;
+
+            this.drawSlice( context, 0, ( 100 - values[ 0 ].value ) / 100 );
+        }
     }
 
     private getPizzaURL( label: PizzaLabel ): string {

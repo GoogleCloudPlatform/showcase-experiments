@@ -21,6 +21,7 @@ import styles from "../../styles/generate.css";
 import sharedStyles from "../../styles/shared.css";
 import { MAX_VALUE } from "../services/pi";
 import { formatNumber } from "../services/utils";
+import { gaEvent } from "../services/ga";
 
 interface GenerateState {
     digit: string;
@@ -31,18 +32,22 @@ export class Generate extends React.Component<{}, GenerateState> {
         digit: "",
     }
 
+    componentDidMount() {
+        gaEvent( { event: "pageview", path: location.pathname } );
+    }
+
     render() {
         return (
             <div className={ styles.page }>
                 <img src={ headerImage } className={ sharedStyles.mobile }/>
                 <img src={ homeDesktopImage } className={ sharedStyles.desktop } />
 
-                <h1>Enter a number between<br/>0 and { formatNumber( MAX_VALUE ) }</h1>
+                <h1>Enter a number from<br/>1 to { formatNumber( MAX_VALUE ) }</h1>
 
                 <p className={ styles.decription }>
-                    It can be your phone number, <br/>
-                    birthday, home address, or any<br/>
-                    other random number.
+                    Enter a number. Any number.<br />
+                    For example, to create a unique art piece from <br />
+                    the digits of E, the natural number, enter 27182818284
                 </p>
 
                 <div className={ styles.inputContainer }>
@@ -73,7 +78,7 @@ export class Generate extends React.Component<{}, GenerateState> {
             .join( "" )
             .substr( 0, 15 );
 
-        digit = Math.min( parseInt( digit || "0" ), MAX_VALUE ).toString();
+        digit = Math.min( Math.max( parseInt( digit || "1" ), 1 ), MAX_VALUE ).toString();
 
         this.setState( { digit } );
     }

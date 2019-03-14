@@ -119,8 +119,9 @@ export function getResult( id: string ): Promise<Evaluation.Response | null> {
 
                 return response.json();
             } )
-            .then( value => {
-                return ( value as Evaluation.Response ) || null;
+            .then( ( value: Evaluation.Response ) => {
+                store.push( value );
+                return value || null;
             } )
             .catch( () => null );
     }

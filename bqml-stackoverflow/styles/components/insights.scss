@@ -36,6 +36,7 @@
     width: 100%;
 
     .title {
+        color: #7D7D7D;
         margin: 0px 0 15px;
         text-align: center;
     }
@@ -64,7 +65,8 @@
 .option {
     border-radius: 20px;
     border: 1px solid var( --highlight-color-soft );
-    color: var( --highlight-color-soft );
+    color: #7D7D7D;
+    cursor: pointer;
     flex: 1 1 100%;
     font-size: 14px;
     padding: 10px;
@@ -72,7 +74,7 @@
 
     &.selected {
         background-color: var( --highlight-color-soft );
-        color: white;
+        color: var( --highlight-color );
     }
 
     &.dropdownOption {
@@ -203,7 +205,7 @@
     }
 
     .choice.chosen {
-        color: var( --highlight-color-soft );
+        color: var( --highlight-color );
 
         & .icon {
             display: inline-block;

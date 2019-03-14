@@ -78,5 +78,5 @@ export const coverDistribution: Attempt[] = [
 export const backgroundColor = "white";
 export const drawColor = "#eee";
 export const blueColor = "#4285f4";
-export const redColor = "#ea4333ab";
-export const yellowColor = "#FABB0599"
+export const redColor = "rgba( 234, 67, 51, 0.67 )";
+export const yellowColor = "rgba( 250, 187, 5, 0.6 )";

@@ -21,6 +21,8 @@ import (
 	"errors"
 	"fmt"
 	"html/template"
+	"image"
+	"image/jpeg"
 	"io"
 	"io/ioutil"
 	"mime/multipart"
@@ -28,14 +30,17 @@ import (
 	"os"
 	"path"
 	"strings"
+	"time"
 
 	"cloud.google.com/go/storage"
+	"github.com/nfnt/resize"
 	uuid "github.com/satori/go.uuid"
 	"golang.org/x/oauth2/google"
 	cloudkms "google.golang.org/api/cloudkms/v1"
 	"google.golang.org/appengine" // Required external App Engine library
 	"google.golang.org/appengine/datastore"
 	"google.golang.org/appengine/file"
+	"google.golang.org/appengine/log"
 )
 
 const modelAppEngineID = "automlvisiontest-214720"
@@ -68,6 +73,7 @@ func fullRoute(route string) string {
 
 func warmupHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
+	log.Infof(ctx, "Warming called")
 	shapeModelURL = fmt.Sprintf(publicMLURL, modelAppEngineID, region, shapeModel)
 	authModelURL = fmt.Sprintf(publicMLURL, modelAppEngineID, region, authmodel)
 
@@ -77,33 +83,40 @@ func warmupHandler(w http.ResponseWriter, r *http.Request) {
 
 	image, err = ioutil.ReadFile("./warm-up.jpg")
 	if err != nil {
-		sendJSON(w, fmt.Sprintf(`{"error": "couldn't get image: %s"}`, err), http.StatusInternalServerError)
+		sendText(w, fmt.Sprintf(`"couldn't get image: %s"`, err), http.StatusInternalServerError)
 		return
 	}
 
 	oauthClient, err = google.DefaultClient(ctx, cloudkms.CloudPlatformScope)
 	if err != nil {
-		sendJSON(w, fmt.Sprintf(`{"error": "couldn't get client: %s"}`, err), http.StatusInternalServerError)
+		sendText(w, fmt.Sprintf(`"couldn't get client: %s"`, err), http.StatusInternalServerError)
 		return
 	}
 
-	//TODO: 	Check to see if the model needs to be warmed up, if so do not return
-	//			instead go try and warm up the next model
-	// 			also return message that you are warming up the api, not that it was successful
-
-	_, err = isPizza(image)
+	message := ""
+	payload, err := isPizza(image)
 	if err != nil {
-		sendJSON(w, fmt.Sprintf(`{"error": "could not use IsPizza: %s"}`, err), http.StatusInternalServerError)
-		return
+		if strings.Index(err.Error(), "needs to be warmed up") >= 0 {
+			sendText(w, fmt.Sprintf(`"could not use IsPizza: %s"`, err), http.StatusInternalServerError)
+			return
+		}
+		message += "IsPizza warming "
+		log.Warningf(ctx, fmt.Sprintf(`"IsPizza warming: %v"`, payload))
+
 	}
 
-	_, err = authPizza(image)
+	payload, err = authPizza(image)
 	if err != nil {
-		sendJSON(w, fmt.Sprintf(`{"error": "could not use authPizza %s"}`, err), http.StatusInternalServerError)
-		return
+		if strings.Index(err.Error(), "needs to be warmed up") >= 0 {
+			sendText(w, fmt.Sprintf(`"could not use authPizza %s"`, err), http.StatusInternalServerError)
+			return
+		}
+		message += "authPizza warming "
+		log.Warningf(ctx, fmt.Sprintf(`"AuthPizza warming: %v"`, payload))
 	}
 
-	sendJSON(w, `{"success": true}`, http.StatusOK)
+	log.Infof(ctx, "Warming complete")
+	sendText(w, fmt.Sprintf(`ok %s`, message), http.StatusOK)
 }
 
 // Handles all top level requests but simply responding with the frontend entry point.
@@ -226,13 +239,20 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	} else if r.Method == "POST" {
 		id := generateID()
 
-		f, _, err := extractImage(r)
+		ul, _, err := extractImage(r)
 		if err != nil {
 			sendError(w, err)
 			return
 		}
 
-		oauthClient, err = google.DefaultClient(ctx, cloudkms.CloudPlatformScope)
+		f, err := shrinkImage(ul)
+		if err != nil {
+			sendError(w, err)
+			return
+		}
+
+		ctxDeadline, _ := context.WithTimeout(ctx, 1*time.Minute)
+		oauthClient, err = google.DefaultClient(ctxDeadline, cloudkms.CloudPlatformScope)
 		if err != nil {
 			sendError(w, err)
 		}
@@ -241,6 +261,7 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 
 		pizzaIsScores, err := isPizza(f)
 		if err != nil {
+			log.Errorf(ctx, fmt.Sprintf("IsPizza failed: %s \n", err))
 			sendError(w, err)
 			return
 		}
@@ -249,6 +270,7 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 
 		pizzaAuthScores, err := authPizza(f)
 		if err != nil {
+			log.Errorf(ctx, fmt.Sprintf("AuthPizza failed: %s \n", err))
 			sendError(w, err)
 			return
 		}
@@ -274,7 +296,21 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func shrinkImage(f []byte) ([]byte, error) {
+	img, _, err := image.Decode(bytes.NewReader(f))
+
+	if err != nil {
+		return nil, err
+	}
+
+	newImage := resize.Resize(500, 0, img, resize.Lanczos3)
+	buf := new(bytes.Buffer)
+	err = jpeg.Encode(buf, newImage, nil)
+	return buf.Bytes(), nil
+}
+
 func extractImage(r *http.Request) ([]byte, *multipart.FileHeader, error) {
+	// ctx := appengine.NewContext(r)
 	f, fh, err := r.FormFile("image")
 	if err == http.ErrMissingFile {
 		return nil, nil, errors.New("upload file missing: " + err.Error())
@@ -288,7 +324,21 @@ func extractImage(r *http.Request) ([]byte, *multipart.FileHeader, error) {
 		return nil, nil, errors.New("upload read error: " + err.Error())
 	}
 
+	// img, _, err := image.Decode(f)
+	// if err != nil {
+	// 	return nil, nil, errors.New("upload read error: " + err.Error())
+	// }
+
+	// newImage := resize.Resize(500, 0, img, resize.Lanczos3)
+	// buf := new(bytes.Buffer)
+	// err = jpeg.Encode(buf, newImage, nil)
+	if err != nil {
+		return nil, nil, errors.New("resize error: " + err.Error())
+	}
+	// log.Infof(ctx, fmt.Sprintf("we encoded the image %v", newImage))
+
 	return bytes, fh, nil
+	// return buf.Bytes(), fh, nil
 }
 
 func saveToGCS(ctx context.Context, f []byte, fh *multipart.FileHeader, id string) (url string, err error) {
@@ -389,6 +439,11 @@ func generateID() string {
 
 func sendJSON(w http.ResponseWriter, content string, status int) {
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(status)
+	fmt.Fprint(w, content)
+}
+
+func sendText(w http.ResponseWriter, content string, status int) {
 	w.WriteHeader(status)
 	fmt.Fprint(w, content)
 }

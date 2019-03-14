@@ -18,9 +18,11 @@ import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 
 import sharedStyle from "../../styles/shared.scss";
 import { fullRoute } from "../config";
+import { startCamera } from "../services/webcam";
 
 const Button: React.SFC<RouteComponentProps & { label: string, inverse?: boolean }> = ( { label, inverse } ) => (
-    <Link to={ fullRoute( "/camera" ) } className={ classnames( sharedStyle.button, sharedStyle.mobile, inverse ? sharedStyle.inverse : null ) }>
+    <Link to={ fullRoute( "/camera" ) }
+          className={ classnames( sharedStyle.button, sharedStyle.mobile, inverse ? sharedStyle.inverse : null ) }>
         { label }
     </Link>
 );

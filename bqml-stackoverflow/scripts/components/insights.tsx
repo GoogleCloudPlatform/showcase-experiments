@@ -234,8 +234,8 @@ class Dropdown extends React.Component<DropdownProps> {
                     <div className={ styles.inputWrapper }>
                     <i className="material-icons">search</i>
                         <input type="text" className={ styles.input }
-                            placeholder="Search tag"
-                            onChange={ e => this.setState( { filter: e.currentTarget.value.toLowerCase() } ) } />
+                               placeholder="Search tag"
+                               onChange={ e => this.setState( { filter: e.currentTarget.value.toLowerCase() } ) } />
                     </div>
 
                     <div className={ styles.list }>

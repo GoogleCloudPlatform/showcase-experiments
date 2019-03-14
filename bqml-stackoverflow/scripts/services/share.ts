@@ -8,7 +8,7 @@ const FACEBOOK_POPUP_SETTINGS = "height=500,width=700";
 const input = document.createElement( "input" );
 
 export function tweet( text: string, url: string = document.location.href ) {
-    const params = `text=${ encodeURIComponent( text ) }&url=${ encodeURIComponent( url ) }&via=GoogleCloudPlatform`;
+    const params = `text=${ encodeURIComponent( text ) }`;
 
     window.open( `${ TWITTER_SHARE_URL }${ params }`, "_blank", TWITTER_POPUP_SETTINGS );
 }

@@ -34,15 +34,9 @@ function isError( value: Partial<ServerResponse & ServerError> ): value is Serve
 export const MAX_VALUE = 31415926535897;
 
 export function seedPi( value: number | string ): Promise<void> {
-    return fetch( `https://api.pi.delivery/v1/pi?start=${ value }&numberOfDigits=${ AMOUNT }` )
-        .then( response => response.json() )
-        .then( ( response: ServerResponse | ServerError ) => {
-            if ( isError( response ) ) {
-                handleError();
-            } else {
-                numbers = response.content.split( "." ).join( "" );
-            }
-
+    return loadNumbers( parseInt( value.toString() ) )
+        .then( ( result: string ) => {
+            numbers = result;
             pointer = 0;
             isInitialized = true;
         } )
@@ -50,6 +44,27 @@ export function seedPi( value: number | string ): Promise<void> {
             handleError();
             pointer = 0;
             isInitialized = true;
+        } );
+}
+
+function loadNumbers( start: number, amount = AMOUNT ): Promise<string> {
+    start = start % AMOUNT;
+
+    if ( start + amount > MAX_VALUE + 1 ) {
+        return Promise.all( [
+            loadNumbers( start, MAX_VALUE - start ),
+            loadNumbers( 0, ( start + 1000 ) % AMOUNT ),
+        ] ).then( ( [ a, b ] ) => a + b );
+    }
+
+    return fetch( `https://api.pi.delivery/v1/pi?start=${ start }&numberOfDigits=${ amount }` )
+        .then( response => response.json() )
+        .then( ( response: ServerResponse | ServerError ) => {
+            if ( isError( response ) ) {
+                throw new Error( "Could not load Pi" );
+            }
+
+            return numbers = response.content.split( "." ).join( "" );
         } );
 }
 

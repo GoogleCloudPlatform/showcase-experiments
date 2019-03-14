@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import React from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch, RouteComponentProps } from "react-router-dom";
 
 import { Camera } from "./components/camera";
 import { Failure } from "./components/failure";

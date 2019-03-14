@@ -17,6 +17,9 @@ import classnames from "classnames";
 import sharedStyles from "../../styles/shared.css";
 import { tweet, facebookShare } from "../services/share";
 
+const tweetCopy = "This is one of 31.4 trillion pieces of art you can generate in celebration of Pi Day. " +
+    "Generate your own unique design using the Pi Day Google Cloud Showcase experiment at g.co/showcase/piday. #piday #showcaseexperiment"
+
 export class ShareButton extends React.Component<{ classes: string }> {
     state = { active: false }
 
@@ -29,10 +32,10 @@ export class ShareButton extends React.Component<{ classes: string }> {
 
         return (
             <div className={ classes } onClick={ () => this.setState( { active: true } ) }>
-                Share
+                SHARE
                 <div className={ sharedStyles.buttonShareContainer }>
                     <div className={ sharedStyles.buttonShareOption }
-                         onClick={ () => tweet( "Check out this generated thing I found." ) }>
+                         onClick={ () => tweet( tweetCopy ) }>
                         <i className="fab fa-twitter"></i>
                     </div>
                     <div className={ sharedStyles.buttonShareOption }
