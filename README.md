@@ -2,7 +2,7 @@
 
 This repository contains the code for the Google Cloud Showcase Experiements.
 
-See https://cloud.google.com/showcase/experiments to see this code in action.
+See https://showcase.withgoogle.com/experiments to see this code in action.
 
 ## How to use this repository
 
