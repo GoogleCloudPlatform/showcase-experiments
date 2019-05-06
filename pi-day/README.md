@@ -2,7 +2,7 @@
 > For more information see: [Showcase Experiments: Pi Day](https://showcase.withgoogle.com/experiment-detail/pi)
 
 ## Development
-For local development make sure you run `yarn dev` and `dev_appserver.py dist/app.yaml` in
+For local development make sure you run `yarn dev` and `dev_appserver.py server/app.yaml` in
 parallel.
 
 * **Parcel:** [Parcel](https://github.com/parcel-bundler/parcel) is used to build and bundle all files. This is executed through `yarn dev` and continues to watch your files as they change.
