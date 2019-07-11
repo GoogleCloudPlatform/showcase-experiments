@@ -1,0 +1,61 @@
+.page {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 700px;
+}
+
+.image {
+    background-color: white;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 100%;
+    border: 4px solid white;
+    box-shadow: 0 2px 4px rgba( 0, 0, 0, 0.4 );
+    flex: 0 0 60px;
+    margin: 10px 0;
+    width: 60px;
+}
+
+.page p {
+    flex: 0 0 20px;
+    font-size: 14px;
+}
+
+.map {
+    flex: 1 1 100%;
+    width: 100%;
+}
+
+.mapWrapper {
+    height: 100%;
+    position: relative;
+}
+
+.buttonWrapper {
+    flex: 0 0 110px;
+}
+
+.again {
+    text-decoration: none;
+    background: transparent;
+    color: var( --highlight-color );
+}
+
+.resultImage {
+    display: flex;
+    flex-direction: row;
+    left: 50%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    transform: translate( -50%, -50% );
+    width: 80%;
+}
+
+.experiment {
+    margin: 0 0 10px 0;
+}

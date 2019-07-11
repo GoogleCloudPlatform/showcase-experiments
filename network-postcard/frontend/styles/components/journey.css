@@ -1,0 +1,122 @@
+.page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.counter {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    background-color: #009688;
+    border-radius: 50px;
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    min-width: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+}
+
+.counter .sec {
+    font-size: 14px;
+}
+
+.map {
+    position: relative;
+}
+
+@media all and ( min-width: 500px ) {
+    .map {
+        width: 100%;
+    }
+}
+
+@media all and ( max-width: 500px ) {
+    .map {
+        height: 40%;
+    }
+}
+
+.list {
+    position: absolute;
+    width: 100%;
+    height: calc( 50% - 80px );
+    bottom: 20px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list p {
+    flex: 0 0 28px;
+}
+
+.cityContainer {
+    flex: 1 1 100%;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cityContainer::after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 40px;
+}
+
+.cities {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100%;
+}
+
+.cityLine {
+    width: 70%;
+    max-width: 300px;
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #6A6A6A;
+}
+
+.review {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX( -50% );
+}
+
+.preview {
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+@media all and ( max-width: 500px ) {
+    .preview {
+        width: 150px;
+    }
+}
+
+.experiment {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}

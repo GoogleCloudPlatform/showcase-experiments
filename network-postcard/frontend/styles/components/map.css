@@ -1,0 +1,36 @@
+.component {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+@media all and ( max-width: 500px ) {
+    .component img,
+    .component .canvasHolder,
+    .component canvas {
+        height: 100%;
+    }
+}
+
+@media all and ( min-width: 500px ) {
+    .component img,
+    .component .canvasHolder,
+    .component canvas {
+        width: 100%;
+    }
+}
+
+.component .canvasHolder {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+}

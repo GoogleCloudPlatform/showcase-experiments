@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+/Makefile.properties
+/server/output.png
+/server/gcprelay
+/infrastructure/gcprelay
+/route/output.png
+/mobile/vendor

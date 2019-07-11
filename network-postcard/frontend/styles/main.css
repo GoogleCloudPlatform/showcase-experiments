@@ -1,0 +1,39 @@
+@import "reset.css";
+
+:root {
+    --highlight-color: #012754;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Google Sans", sans-serif;
+    background-color: #F6F6F6
+}
+
+:global .container {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 46px;
+    letter-spacing: -0.8;
+    color: #424242;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 28px;
+    color: #494949;
+    letter-spacing: 0.5px;
+}
