@@ -2,7 +2,7 @@
   "name": "pizza-authenticator",
   "version": "1.0.0",
   "description": "Evaluate the authenticity of your pizza.",
-  "repository": "git@github.com:MathiasPaumgarten/pizza-authenticator.git",
+  "repository": "git@github.com:GoogleCloudPlatform/showcase-experiments.git",
   "contributors": [
     {
       "name": "Terrence Ryan",
