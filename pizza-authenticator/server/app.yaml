@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-runtime: go
-api_version: go1
+runtime: go112
 service: pizza-authenticator
 
 includes:
@@ -29,6 +28,5 @@ handlers:
   static_files: \1
   upload: .*\.map
 
-# All URLs are handled by the Go application script
 - url: /.*
-  script: _go_app
+  script: auto
