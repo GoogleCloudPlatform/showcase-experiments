@@ -10,5 +10,6 @@ RUN npm install -g --save-dev @angular/cli
 RUN npm install -g --save-dev yarn 
 RUN npm install --save-dev  --unsafe-perm node-sass
 RUN npm install --save-dev @angular-devkit/build-angular
+RUN npm install -g --save-dev parcel-bundler
 
 ENTRYPOINT ["make"]
