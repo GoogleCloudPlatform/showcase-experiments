@@ -9,11 +9,12 @@ require (
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
 	github.com/satori/go.uuid v1.2.0
 	golang.org/x/exp v0.0.0-20200228211341-fcea875c7e85 // indirect
+	golang.org/x/net v0.0.0-20200425230154-ff2c4b7c35a0 // indirect
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
-	golang.org/x/sys v0.0.0-20200413165638-669c56c373c4 // indirect
-	golang.org/x/tools v0.0.0-20200416040550-9c19d0db369a // indirect
-	google.golang.org/api v0.21.0
-	google.golang.org/appengine v1.6.5
-	google.golang.org/genproto v0.0.0-20200413115906-b5235f65be36 // indirect
-	google.golang.org/grpc v1.28.1 // indirect
+	golang.org/x/sys v0.0.0-20200428200454-593003d681fa // indirect
+	golang.org/x/tools v0.0.0-20200428211428-0c9eba77bc32 // indirect
+	google.golang.org/api v0.22.0
+	google.golang.org/appengine v1.6.6
+	google.golang.org/genproto v0.0.0-20200428115010-c45acf45369a // indirect
+	google.golang.org/grpc v1.29.1 // indirect
 )

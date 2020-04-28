@@ -434,7 +434,7 @@ func authPizza(f []byte) (*response, error) {
 }
 
 func generateID() string {
-	return uuid.Must(uuid.NewV4()).String()
+	return uuid.Must(uuid.NewV4(), nil).String()
 }
 
 func sendJSON(w http.ResponseWriter, content string, status int) {
