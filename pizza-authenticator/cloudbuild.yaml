@@ -1,4 +1,11 @@
 steps:
-    - name: gcr.io/$PROJECT_ID/make
-      args: ['build']
-      dir: 'pizza-authenticator'
+  - name: node:11
+    entrypoint: yarn
+    dir: 'pizza-authenticator'
+  - name: node:11
+    entrypoint: yarn
+    args: ['package']
+    dir: 'pizza-authenticator'
+  - name: gcr.io/cloud-builders/gcloud
+    args: ['app', 'deploy', '-q']
+    dir: 'pizza-authenticator/dist'  

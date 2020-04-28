@@ -19,7 +19,7 @@
     "dev": "parcel watch index.html --public-url=/experiment/pizza-authenticator/dist/",
     "build-server": "cp -a server/. dist/",
     "clean": "rm -rf dist",
-    "deploy": "yarn clean && parcel build index.html --public-url=/experiment/pizza-authenticator/dist/ && yarn build-server && gcloud app deploy ./dist --project=gweb-showcase -q"
+    "package": "yarn clean && parcel build index.html --public-url=/experiment/pizza-authenticator/dist/ && yarn build-server"
   },
   "dependencies": {
     "classnames": "^2.2.6",
