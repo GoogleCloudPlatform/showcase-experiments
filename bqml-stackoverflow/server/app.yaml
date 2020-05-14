@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-runtime: go112
+runtime: go111
 service: bqml-stackoverflow
 
 includes:
@@ -23,4 +23,9 @@ handlers:
   static_files: \1
   upload: .*\.(?:js|ico|css|svg|png)
 
+- url: /experiment/bqml-stackoverflow/api.*
+  script: _go_app
 
+- url: /.*
+  static_files: index.html
+  upload: index.html
