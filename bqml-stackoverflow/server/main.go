@@ -110,7 +110,7 @@ func getDatabase() (*sql.DB, error) {
 	if appengine.IsDevAppServer() {
 		return sql.Open("mysql", fmt.Sprintf("%s:%s@tcp([localhost]:3306)/%s", user, password, table))
 	}
-
+	log.Printf("Database call to (%s)/%s", instance, table)
 	return sql.Open("mysql", fmt.Sprintf("%s:%s@cloudsql(%s)/%s", user, password, instance, table))
 }
 
