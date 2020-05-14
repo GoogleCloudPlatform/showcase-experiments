@@ -18,8 +18,4 @@ service: bqml-stackoverflow
 includes:
 - db_user.yaml
 
-handlers:
-- url: /experiment/bqml-stackoverflow/dist/(.*\.(?:js|ico|css|svg|png))$
-  static_files: \1
-  upload: .*\.(?:js|ico|css|svg|png)
 

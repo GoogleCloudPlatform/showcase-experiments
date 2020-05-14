@@ -43,7 +43,7 @@ func main() {
 
 	port = os.Getenv("PORT")
 	if port == "" {
-		port = ":8080"
+		port = "8080"
 	}
 
 	http.HandleFunc("/experiment/bqml-stackoverflow/api/", func(w http.ResponseWriter, r *http.Request) {
@@ -85,7 +85,7 @@ func main() {
 	http.HandleFunc("/", fs)
 
 	fmt.Printf("Starting server on port %s\n", port)
-	if err := http.ListenAndServe(port, nil); err != nil {
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)
 	}
 
