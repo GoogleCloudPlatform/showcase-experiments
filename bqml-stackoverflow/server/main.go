@@ -55,7 +55,7 @@ func main() {
 		}
 		defer rows.Close()
 
-		fmt.Printf("%v\n", rows)
+		fmt.Printf("Rows: %v\n", rows)
 
 		if rows.Next() {
 			var probabilityOfAnswer float32
@@ -136,6 +136,9 @@ func attemptQuery(attempts int, r *http.Request) (*sql.Rows, error) {
 			break
 		} else {
 			db, err = getDatabase()
+			if err != nil {
+				fmt.Printf("error getting database %v\n", err)
+			}
 		}
 	}
 
