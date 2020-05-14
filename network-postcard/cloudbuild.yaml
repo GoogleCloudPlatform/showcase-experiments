@@ -13,4 +13,4 @@ steps:
     dir: 'network-postcard/frontend'
   - name: gcr.io/cloud-builders/gcloud
     args: ['app', 'deploy', '-q']
-    dir: 'network-postcard/dist'  
+    dir: 'network-postcard/frontend/dist'  
