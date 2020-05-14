@@ -1,0 +1,15 @@
+steps:
+  - name: node:11
+    entrypoint: yarn
+    args: ['install']
+    dir: 'pi-day'
+  - name: node:11
+    entrypoint: yarn
+    args: ['deploy']
+    dir: 'pi-day'
+  - name: mirror.gcr.io/library/golang
+    args: ['go', 'mod', 'vendor']  
+    dir: "pi-day/dist"    
+  - name: gcr.io/cloud-builders/gcloud
+    args: ['app', 'deploy', '-q']
+    dir: 'pi-day/dist'  

@@ -1,0 +1,11 @@
+steps:
+  - name: node:11
+    entrypoint: yarn
+    dir: 'bqml-stackoverflow'
+  - name: node:11
+    entrypoint: yarn
+    args: ['package']
+    dir: 'bqml-stackoverflow'
+  - name: gcr.io/cloud-builders/gcloud
+    args: ['app', 'deploy', '-q']
+    dir: 'bqml-stackoverflow/dist'  

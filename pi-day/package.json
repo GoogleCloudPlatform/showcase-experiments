@@ -7,9 +7,9 @@
     "scripts": {
         "dev": "parcel watch index.html --public-url=/experiment/pi/dist/",
         "build": "parcel build index.html --public-url=/experiment/pi/dist/ && yarn build-server",
-        "build-server": "cp -r server/. dist",
+        "build-server": "cp -a server/. dist",
         "clean": "rm -rf dist",
-        "deploy": "yarn clean && yarn build && gcloud app deploy dist/app.yaml -q --project=gweb-showcase"
+        "deploy": "yarn clean && yarn build"
     },
     "author": {
         "name": "Mathias Paumgarten",
@@ -26,6 +26,7 @@
         "@types/react": "^16.8.1",
         "@types/react-dom": "^16.0.11",
         "@types/react-router-dom": "^4.3.1",
+        "autoprefixer": "^9.7.6",
         "node-sass": "^4.11.0",
         "parcel-bundler": "^1.11.0",
         "postcss-modules": "^1.4.1",
