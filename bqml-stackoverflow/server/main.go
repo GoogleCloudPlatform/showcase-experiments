@@ -104,14 +104,14 @@ func getEmptyAnswer() []byte {
 func getDatabase() (*sql.DB, error) {
 	user := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
-	table := os.Getenv("DB_DATABASE")
+	database := os.Getenv("DB_DATABASE")
 	instance := os.Getenv("DB_INSTANCE")
 
 	if appengine.IsDevAppServer() {
-		return sql.Open("mysql", fmt.Sprintf("%s:%s@tcp([localhost]:3306)/%s", user, password, table))
+		return sql.Open("mysql", fmt.Sprintf("%s:%s@tcp([localhost]:3306)/%s", user, password, database))
 	}
-	log.Printf("Database call to (%s)/%s", instance, table)
-	return sql.Open("mysql", fmt.Sprintf("%s:%s@cloudsql(%s)/%s", user, password, instance, table))
+	log.Printf("Database call to (%s)/%s", instance, database)
+	return sql.Open("mysql", fmt.Sprintf("%s:%s@unix(/cloudsql/%s)/%s", user, password, instance, database))
 }
 
 func attemptQuery(attempts int, r *http.Request) (*sql.Rows, error) {
