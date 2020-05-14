@@ -135,6 +135,7 @@ func attemptQuery(attempts int, r *http.Request) (*sql.Rows, error) {
 		if err == nil {
 			break
 		} else {
+			fmt.Printf("error getting using the database %v\n", err)
 			db, err = getDatabase()
 			if err != nil {
 				fmt.Printf("error getting database %v\n", err)
