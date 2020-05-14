@@ -8,7 +8,7 @@
     "build": "parcel build index.html --public-url=/experiment/bqml-stackoverflow/dist/",
     "build-server": "cp -r server/. dist/",
     "clean": "rm -rf dist",
-    "deploy": "yarn clean && yarn build && yarn build-server && gcloud app deploy dist/app.yaml -q --project=gweb-showcase"
+    "deploy": "yarn clean && yarn build && yarn build-server"
   },
   "license": "MIT",
   "devDependencies": {

@@ -2,10 +2,14 @@ steps:
   - name: node:11
     entrypoint: yarn
     dir: 'bqml-stackoverflow'
+    args: ['install']
   - name: node:11
     entrypoint: yarn
-    args: ['package']
+    args: ['deploy']
     dir: 'bqml-stackoverflow'
+  - name: 'google/cloud-sdk'
+    args: ['gsutil', 'cp', 'gs://gweb-showcase-credentials/bqml-stackoverflow/db_user.yaml', 'db_user.yaml']
+    dir: 'bqml-stackoverflow/dist'  
   - name: gcr.io/cloud-builders/gcloud
     args: ['app', 'deploy', '-q']
     dir: 'bqml-stackoverflow/dist'  
