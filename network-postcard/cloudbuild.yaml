@@ -2,11 +2,11 @@ steps:
   - name: node:11
     entrypoint: yarn
     args: ['install']
-    dir: 'network-postcard'
+    dir: 'network-postcard/frontend'
   - name: node:11
     entrypoint: yarn
     args: ['build']
-    dir: 'network-postcard'
+    dir: 'network-postcard/frontend'
   - name: gcr.io/cloud-builders/gcloud
     args: ['app', 'deploy', '-q']
     dir: 'network-postcard/dist'  
