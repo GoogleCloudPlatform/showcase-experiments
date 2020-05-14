@@ -9,7 +9,7 @@ steps:
     dir: 'bqml-stackoverflow'
   - name: 'google/cloud-sdk'
     args: ['gsutil', 'cp', 'gs://gweb-showcase-credentials/bqml-stackoverflow/db_user.yaml', 'db_user.yaml']
-    dir: 'bqml-stackoverflow/dist'  
+    dir: 'bqml-stackoverflow/server'  
   - name: gcr.io/cloud-builders/gcloud
     args: ['app', 'deploy', '-q']
-    dir: 'bqml-stackoverflow/dist'  
+    dir: 'bqml-stackoverflow/server'  
