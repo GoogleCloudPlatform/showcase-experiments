@@ -24,7 +24,6 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"google.golang.org/appengine"
-	serverLog "google.golang.org/appengine/log"
 )
 
 var (
@@ -47,15 +46,16 @@ func main() {
 	}
 
 	http.HandleFunc("/experiment/bqml-stackoverflow/api/", func(w http.ResponseWriter, r *http.Request) {
-		ctx := appengine.NewContext(r)
 		rows, err := attemptQuery(5, r)
 		if err != nil {
-			serverLog.Debugf(ctx, "db.Query: %v", err)
+			log.Printf("db.Query: %v", err)
 
 			w.Write(getEmptyAnswer())
 			return
 		}
 		defer rows.Close()
+
+		fmt.Printf("%v\n", rows)
 
 		if rows.Next() {
 			var probabilityOfAnswer float32
