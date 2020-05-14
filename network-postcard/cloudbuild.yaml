@@ -9,7 +9,8 @@ steps:
     dir: 'network-postcard/frontend'
   - name: debian
     entrypoint: cp
-    args: ['network-postcard/frontend/app.yaml', 'dist/app.yaml'] 
+    args: ['app.yaml', 'dist/app.yaml'] 
+    dir: 'network-postcard/frontend'
   - name: gcr.io/cloud-builders/gcloud
     args: ['app', 'deploy', '-q']
     dir: 'network-postcard/dist'  
