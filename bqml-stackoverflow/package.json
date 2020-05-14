@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "parcel index.html --public-url=/experiment/bqml-stackoverflow/dist/",
     "build": "parcel build index.html --public-url=/experiment/bqml-stackoverflow/dist/",
-    "build-server": "cp -r server/. dist/",
-    "clean": "rm -rf dist",
+    "build-server": "cp -r dist server/",
+    "clean": "rm -rf server/dist",
     "deploy": "yarn clean && yarn build && yarn build-server"
   },
   "license": "MIT",

@@ -23,9 +23,3 @@ handlers:
   static_files: \1
   upload: .*\.(?:js|ico|css|svg|png)
 
-- url: /experiment/bqml-stackoverflow/api.*
-  script: _go_app
-
-- url: /.*
-  static_files: index.html
-  upload: index.html

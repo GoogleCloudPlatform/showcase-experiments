@@ -27,8 +27,11 @@ import (
 	serverLog "google.golang.org/appengine/log"
 )
 
-var db *sql.DB
-var queryString = "SELECT probability_of_answer, probability_of_downvote, minutes FROM questions WHERE tag = ? AND first_word = ? AND ends_question = ? AND weekday_utc = ? AND account_creation_year = ? AND question_length = ? AND hour_utc = ?"
+var (
+	db          *sql.DB
+	queryString = "SELECT probability_of_answer, probability_of_downvote, minutes FROM questions WHERE tag = ? AND first_word = ? AND ends_question = ? AND weekday_utc = ? AND account_creation_year = ? AND question_length = ? AND hour_utc = ?"
+	port        = ":8080"
+)
 
 func main() {
 	var err error
@@ -73,7 +76,14 @@ func main() {
 
 	})
 
-	appengine.Main()
+	fs := wrapHandler(http.FileServer(http.Dir("./dist")))
+	http.HandleFunc("/", fs)
+
+	fmt.Printf("Starting server on port %s\n", port)
+	if err := http.ListenAndServe(port, nil); err != nil {
+		log.Fatal(err)
+	}
+
 }
 
 func getEmptyAnswer() []byte {
@@ -132,4 +142,33 @@ type Answer struct {
 	Minutes   float32 `json:"minutes"`
 	PAnswer   float32 `json:"probability_of_answer"`
 	PDownvote float32 `json:"probabiliy_of_downvote"`
+}
+
+type NotFoundRedirectRespWr struct {
+	http.ResponseWriter // We embed http.ResponseWriter
+	status              int
+}
+
+func (w *NotFoundRedirectRespWr) WriteHeader(status int) {
+	w.status = status // Store the status for our own use
+	if status != http.StatusNotFound {
+		w.ResponseWriter.WriteHeader(status)
+	}
+}
+
+func (w *NotFoundRedirectRespWr) Write(p []byte) (int, error) {
+	if w.status != http.StatusNotFound {
+		return w.ResponseWriter.Write(p)
+	}
+	return len(p), nil // Lie that we successfully written it
+}
+
+func wrapHandler(h http.Handler) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		nfrw := &NotFoundRedirectRespWr{ResponseWriter: w}
+		h.ServeHTTP(nfrw, r)
+		if nfrw.status == 404 {
+			http.Redirect(w, r, "/index.html", http.StatusFound)
+		}
+	}
 }
