@@ -30,7 +30,7 @@ import (
 var (
 	db          *sql.DB
 	queryString = "SELECT probability_of_answer, probability_of_downvote, minutes FROM questions WHERE tag = ? AND first_word = ? AND ends_question = ? AND weekday_utc = ? AND account_creation_year = ? AND question_length = ? AND hour_utc = ?"
-	port        = ":8080"
+	port        = ""
 )
 
 func main() {
@@ -39,6 +39,11 @@ func main() {
 	if err != nil {
 		log.Printf("Failed to establish connection to Database. Server terminated")
 		return
+	}
+
+	port = os.Getenv("PORT")
+	if port == "" {
+		port = ":8080"
 	}
 
 	http.HandleFunc("/experiment/bqml-stackoverflow/api/", func(w http.ResponseWriter, r *http.Request) {
@@ -77,7 +82,7 @@ func main() {
 	})
 
 	fs := wrapHandler(http.FileServer(http.Dir("./dist")))
-	http.HandleFunc("/experiment/bqml-stackoverflow/", fs)
+	http.HandleFunc("/", fs)
 
 	fmt.Printf("Starting server on port %s\n", port)
 	if err := http.ListenAndServe(port, nil); err != nil {
