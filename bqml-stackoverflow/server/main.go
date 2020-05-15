@@ -55,8 +55,6 @@ func main() {
 		}
 		defer rows.Close()
 
-		fmt.Printf("Rows: %v\n", rows)
-
 		if rows.Next() {
 			var probabilityOfAnswer float32
 			var probablityOfDownvote float32
@@ -177,7 +175,7 @@ func wrapHandler(h http.Handler) http.HandlerFunc {
 		nfrw := &NotFoundRedirectRespWr{ResponseWriter: w}
 		h.ServeHTTP(nfrw, r)
 		if nfrw.status == 404 {
-			http.Redirect(w, r, "/index.html", http.StatusFound)
+			http.Redirect(w, r, "/experiment/bqml-stackoverflow/index.html", http.StatusFound)
 		}
 	}
 }
