@@ -23,9 +23,10 @@ import instructionsGif from "../../assets/instructions.gif";
 import { gaEvent } from "../services/ga";
 
 export const Home: React.SFC<RouteChildrenProps> = () => (
+   
     <div className={ classnames( styles.page, sharedStyles.page ) }>
         { gaEvent( { event: "pageview", path: location.pathname } ) }
-
+        
         <img src={ instructionsGif } width="250" />
 
         <h1 className={ styles.title }>Pizza<br/>Authenticator</h1>

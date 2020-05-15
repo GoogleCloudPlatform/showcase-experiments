@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="5px" height="10px" viewBox="0 0 5 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Facebook 24x24</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Share-Icons" transform="translate(-340.000000, -149.000000)">
+            <g id="Group-3" transform="translate(265.000000, 89.000000)">
+                <g id="Facebook-24x24" transform="translate(65.000000, 53.000000)">
+                    <rect id="Rectangle-Copy" x="0" y="0" width="24" height="24"></rect>
+                    <g id="facebook-2-logo-svg-vector" transform="translate(10.000000, 7.000000)" fill="#404040" fill-rule="nonzero">
+                        <path d="M3.24290113,9.62055094 L3.24290113,5.2321072 L4.71592082,5.2321072 L4.93645333,3.52187685 L3.24290113,3.52187685 L3.24290113,2.4299459 C3.24290113,1.93480464 3.38041456,1.59733926 4.09051346,1.59733926 L4.99615089,1.59692114 L4.99615089,0.0673165397 C4.83945062,0.0465501538 4.3018939,0 3.67648655,0 C2.37075938,0 1.47682918,0.79697394 1.47682918,2.26065572 L1.47682918,3.52192331 L0,3.52192331 L0,5.23215366 L1.47678272,5.23215366 L1.47678272,9.62055094 L3.24290113,9.62055094 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

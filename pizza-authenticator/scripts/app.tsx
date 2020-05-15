@@ -22,6 +22,7 @@ import { Home } from "./components/home";
 import { Result } from "./components/result";
 import { Share } from "./components/share";
 import { fullRoute } from "./config";
+import { Nextbar } from "./components/nextbar";
 
 const App: React.SFC = () => (
     <Router>
@@ -39,6 +40,7 @@ const App: React.SFC = () => (
                href="https://github.com/GoogleCloudPlatform/showcase-experiments/tree/master/pizza-authenticator">
                 <i className="fab fa-github"></i>
             </a>
+            <Nextbar></Nextbar>
         </div>
     </Router>
 );
