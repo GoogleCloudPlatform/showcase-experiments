@@ -39,7 +39,7 @@ export class Nextbar extends React.Component{
                 </div>
                 <div className={styles.cta}>
                     <img className={styles.share} height="24" width="24" src={shareImg} onClick={() => this.setState({ showShare: !showShare })}/>
-                    <button className={styles.btn} onClick={ () => gotoCTA() }>{this.state.ctaText}</button>
+                    <button className={styles.btn} onClick={ () => this.gotoCTA() }>{this.state.ctaText}</button>
                     { showShare ?
                     <div className={styles.share_box}>
                         <table>
