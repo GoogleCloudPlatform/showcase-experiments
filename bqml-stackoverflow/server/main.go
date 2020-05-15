@@ -80,7 +80,7 @@ func main() {
 	})
 
 	fs := wrapHandler(http.FileServer(http.Dir("./dist")))
-	http.HandleFunc("/", fs)
+	http.HandleFunc("/experiment/bqml-stackoverflow/", fs)
 
 	fmt.Printf("Starting server on port %s\n", port)
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
