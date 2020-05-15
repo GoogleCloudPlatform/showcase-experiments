@@ -45,6 +45,8 @@ func main() {
 		port = "8080"
 	}
 
+	http.Handle("/", http.FileServer(http.Dir("./dist")))
+
 	http.HandleFunc("/experiment/bqml-stackoverflow/api/", func(w http.ResponseWriter, r *http.Request) {
 		rows, err := attemptQuery(5, r)
 		if err != nil {
@@ -79,8 +81,9 @@ func main() {
 
 	})
 
-	fs := wrapHandler(http.FileServer(http.Dir("./dist")))
-	http.HandleFunc("/experiment/bqml-stackoverflow/", fs)
+	// fs := wrapHandler(http.FileServer(http.Dir("./dist")))
+	// http.HandleFunc("/experiment/bqml-stackoverflow/", fs)
+	// http.Handle("/", http.FileServer(http.Dir("./static")))
 
 	fmt.Printf("Starting server on port %s\n", port)
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
