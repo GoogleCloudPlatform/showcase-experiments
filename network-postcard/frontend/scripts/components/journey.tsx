@@ -21,6 +21,7 @@ import { BASE_URL } from "../config";
 import { JourneyHop, sendImage } from "../services/network";
 import { getImage, hasImage, setTime } from "../services/store";
 import { nodePositions, WorldMap } from "./map";
+import { Nextbar } from "./nextbar";
 
 
 interface JourneyState {
@@ -97,6 +98,7 @@ export class Journey extends React.Component<RouteComponentProps, JourneyState> 
     render() {
         return (
             <div className={ styles.page }>
+                <Nextbar></Nextbar>
                 <div className={ styles.map }>
                     <WorldMap type="pin" steps={ this.state.steps } ref={ m => this.map = m }/>
                 </div>

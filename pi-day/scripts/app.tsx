@@ -19,6 +19,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Generate } from "./components/generate";
 import { Home } from "./components/home";
 import { Result } from "./components/result";
+import { Nextbar } from "./components/nextbar";
 
 const App: React.SFC = () => (
     <BrowserRouter>
@@ -34,6 +35,7 @@ const App: React.SFC = () => (
                href="https://github.com/GoogleCloudPlatform/showcase-experiments/tree/master/pi-day">
                 <i className="fab fa-github"></i>
             </a>
+            <Nextbar></Nextbar>
         </>
     </BrowserRouter>
 )

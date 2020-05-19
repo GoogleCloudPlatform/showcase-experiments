@@ -18,6 +18,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 
 import { Home } from "./components/home";
 import { Insights } from "./components/insights";
+import { Nextbar } from "./components/nextbar";
 
 const App: React.SFC = () => (
     <Router>
@@ -32,6 +33,7 @@ const App: React.SFC = () => (
                href="https://github.com/GoogleCloudPlatform/showcase-experiments/tree/master/bqml-stackoverflow">
                 <i className="fab fa-github"></i>
             </a>
+            <Nextbar></Nextbar>
         </>
     </Router>
 );

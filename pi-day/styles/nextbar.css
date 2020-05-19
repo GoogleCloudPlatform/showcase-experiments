@@ -1,0 +1,133 @@
+.next20banner{
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+    font-family: "Google Sans";
+    font-weight: 400;
+    font-size: 14px;
+    color: #5F6368;
+    letter-spacing: -0.35px;
+    height: 52px;
+    position: relative;
+    margin: 0;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.next20banner .title{
+    display: inline;
+    position: relative;
+    top: 16px;
+    left: 30px;
+}
+
+.next20banner .logotext{
+    position:relative;
+    vertical-align: top;
+    top: 5px;
+    margin-left: 3px;
+}
+
+.next20banner .cta{
+    display: inline;
+    right: 0;
+    position: absolute;
+    padding-top:8px;
+}
+
+.next20banner .cta .share{
+    margin-top: 5px;
+    margin-right: 30px;
+}
+
+.next20banner .cta .btn{
+    margin-right: 30px;
+    vertical-align: top;
+    height: 36px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: #4285F4;
+    border-radius: 4px;
+    font-family: "Google Sans";
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: -0.35px;
+}
+
+.next20banner .cta .share_box{
+    position: absolute;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+    border-radius: 4px;
+    display: inline-block;
+    top: 50px;
+    right: 170px;
+}
+
+.next20banner .cta .share_box th{
+    text-align: left;
+    padding: 6px 20px;
+    white-space: nowrap;
+    color: #404040;
+}
+
+.next20banner .cta .share_box td{
+    text-align: left;
+    padding-right: 20px;
+    
+}
+.next20banner .cta .share_box td img{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    
+    .next20banner{
+        width: 100%;
+        margin: 0;
+        
+    }
+    .next20banner .share_box{
+        right: 170px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .title{
+        left: 16px;
+
+    }
+
+    .btn{
+        margin-right: 10px;
+    }
+
+    .share{
+        margin-right: 10px;
+    }
+
+    .share_box{
+        right: 130px
+    }
+    
+}
+
+@media screen and (max-width: 445px) {
+    .lockup{
+        display:none;
+    }
+}

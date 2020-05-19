@@ -33,7 +33,9 @@ const App: React.SFC = () => (
             <Route exact path={ `${ BASE_URL }/result` } component={ Result } />
             <Route render={ () => <Redirect to={ `${ BASE_URL }/` } /> } />
         </Switch>
+        
     </Router>
+    
 );
 
 render( <App/>, document.getElementById( "root" ) );

@@ -22,10 +22,12 @@ import sharedStyles from "../../styles/shared.css";
 import { BASE_URL } from "../config";
 import { setImage, setOriginal } from "../services/store";
 import { prepareImage } from "../services/image";
+import { Nextbar } from "./nextbar";
 
 
 export const Home: React.SFC<RouteComponentProps> = ( props ) => (
     <div className={ styles.page }>
+        <Nextbar></Nextbar>
         <img src={ logoImage } />
 
         <h1>Network Journey</h1>

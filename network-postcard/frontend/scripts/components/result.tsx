@@ -22,6 +22,7 @@ import { BASE_URL } from "../config";
 import { getImage, hasImage, getResult, getTime, getOriginal } from "../services/store";
 import { WorldMap } from "./map";
 import { ShareButton } from "./share-button";
+import { Nextbar } from "./nextbar";
 
 
 interface ResultState {
@@ -46,6 +47,7 @@ export class Result extends React.Component<RouteComponentProps, ResultState> {
     render() {
         return (
             <div className={ styles.page }>
+                <Nextbar></Nextbar>
                 <div className={ styles.image } style={ { backgroundImage: `url(${ this.state.profile })` } }></div>
 
                 <p>Your trip took  { getTime().toFixed( 2 ) } seconds.</p>
