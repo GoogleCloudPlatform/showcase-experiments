@@ -1,7 +1,6 @@
 .next20banner{
     background: #FFFFFF;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
-    border-radius: 4px;
     font-family: "Google Sans";
     font-weight: 400;
     font-size: 14px;
@@ -9,16 +8,13 @@
     letter-spacing: -0.35px;
     height: 52px;
     position: relative;
-    margin: 5px 10px;
+    margin: 0;
     z-index: 100;
     position: fixed;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    width: -moz-calc(100% - 40px);
-    width: -webkit-calc(100% - 40px);
-    width: -o-calc(100% - 40px);
-    width: calc(100% - 40px);
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 
     .title{
         display: inline;
