@@ -33,13 +33,12 @@ export class Nextbar extends React.Component{
         return (
             <div className={styles.next20banner}>
                 <div className={styles.title}>
-                    <img className={styles.icon} height="20" width="20" src={iconImg} />
-                    <img className={styles.lockup} height="14"  src={textImg} />
+                    <img className={styles.icon} src={iconImg} />
+                    <img className={styles.lockup} src={textImg} />
                     <span className={styles.logotext}>Next '20</span>
                 </div>
                 <div className={styles.cta}>
                     <img className={styles.share} height="24" width="24" src={shareImg} onClick={() => this.setState({ showShare: !showShare })}/>
-                    <button className={styles.btn} onClick={ () => this.gotoCTA() }>{this.state.ctaText}</button>
                     { showShare ?
                     <div className={styles.share_box}>
                         <table>
