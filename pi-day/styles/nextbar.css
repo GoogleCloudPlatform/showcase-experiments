@@ -17,18 +17,34 @@
     width: 100%;
 }
 
+.next20banner .lockup{
+    height: 18px;
+    margin-right: 2px;
+}
+
+.next20banner .icon{
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: -1px;
+    margin-right: 8px;   
+}
+
 .next20banner .title{
     display: inline;
     position: relative;
     top: 16px;
     left: 30px;
+    cursor: pointer;
 }
 
 .next20banner .logotext{
     position:relative;
     vertical-align: top;
-    top: 5px;
+    top: 3px;
     margin-left: 3px;
+    font-size: 16px;
+    font-weight: 100;
 }
 
 .next20banner .cta{
@@ -66,6 +82,10 @@
     display: inline-block;
     top: 50px;
     right: 170px;
+}
+
+.next20banner .cta .share_box tr{
+    cursor: pointer;
 }
 
 .next20banner .cta .share_box th{
@@ -127,7 +147,7 @@
 }
 
 @media screen and (max-width: 445px) {
-    .lockup{
+    .next20banner .lockup{
         display:none;
     }
 }
