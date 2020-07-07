@@ -16,27 +16,47 @@
     right: 0;
     width: 100%;
 
+    .lockup{
+        height: 18px;
+        margin-right: 2px;
+    }
+    
+    .icon{
+        height: 20px;
+        width: 20px;
+        position: relative;
+        top: -1px;
+        margin-right: 8px;   
+    }
+    
     .title{
         display: inline;
         position: relative;
         top: 16px;
         left: 30px;
+        cursor: pointer;
     }
+    
     .logotext{
         position:relative;
         vertical-align: top;
-        top: 5px;
+        top: 3px;
         margin-left: 3px;
+        font-size: 16px;
+        font-weight: 100;
     }
+    
     .cta{
         display: inline;
         right: 0;
         position: absolute;
         padding-top:8px;
+
         .share{
             margin-top: 5px;
             margin-right: 30px;
         }
+        
         .btn{
             margin-right: 30px;
             vertical-align: top;
@@ -51,6 +71,7 @@
             color: #FFFFFF;
             letter-spacing: -0.35px;
         }
+        
         .share_box{
             position: absolute;
             background: #FFFFFF;
@@ -59,7 +80,11 @@
             display: inline-block;
             top: 50px;
             right: 170px;
-        
+
+            tr{
+                cursor: pointer;
+            }
+            
             th{
                 text-align: left;
                 padding: 6px 20px;
@@ -70,19 +95,24 @@
             td{
                 text-align: left;
                 padding-right: 20px;
+                
                 img{
                     height: 16px;
                     width: 16px;
                     cursor: pointer;
                 }
             }
-            
-        
         }
-    }
 
+
+    }
     
+
+
+
+
 }
+
 
 
 
@@ -126,7 +156,7 @@
 }
 
 @media screen and (max-width: 445px) {
-    .lockup{
+    .next20banner .lockup{
         display:none;
     }
 }
