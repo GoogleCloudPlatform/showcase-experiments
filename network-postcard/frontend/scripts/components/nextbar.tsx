@@ -24,7 +24,8 @@ import linkedinImg from "../../assets/nextbar/linkedin.svg";
 import copyImg from "../../assets/nextbar/copy.svg";
 
 export class Nextbar extends React.Component{
-    state = { showShare: false, cta: "https://cloud.google.com/vision", ctaText: "Try Cloud Vision" };
+    ctaurl = "https://cloud.withgoogle.com/next/sf/next/sf/demos?demo=301";
+    state = { showShare: false, cta: this.ctaurl, ctaText: "Try Cloud Vision" };
     
     
     
@@ -32,7 +33,7 @@ export class Nextbar extends React.Component{
         const { showShare } = this.state;
         return (
             <div className={styles.next20banner}>
-                <div className={styles.title}>
+                <div className={styles.title} onClick={ () => this.gotoCTA() }>
                     <img className={styles.icon} src={iconImg} />
                     <img className={styles.lockup} src={textImg} />
                     <span className={styles.logotext}>Next</span>
@@ -43,10 +44,10 @@ export class Nextbar extends React.Component{
                     <div className={styles.share_box}>
                         <table>
                             <tbody>
-                            <tr><th>Twitter</th><td><img src={twitterImg} onClick={ () => this.share_twitter() } /></td></tr>
-                            <tr><th>Facebook</th><td><img src={facebookImg} onClick={ () => this.share_facebook() } /></td></tr>
-                            <tr><th>LinkedIn</th><td><img src={linkedinImg} onClick={ () => this.share_linkedin() } /></td></tr>
-                            <tr><th>Copy Link</th><td><img src={copyImg} onClick={ () => this.share_copy() } /></td></tr>
+                            <tr onClick={ () => this.share_twitter() }><th>Twitter</th><td><img src={twitterImg} /></td></tr>
+                            <tr onClick={ () => this.share_facebook() }><th>Facebook</th><td><img src={facebookImg}  /></td></tr>
+                            <tr onClick={ () => this.share_linkedin() }><th>LinkedIn</th><td><img src={linkedinImg}  /></td></tr>
+                            <tr onClick={ () => this.share_copy() }><th>Copy Link</th><td><img src={copyImg}  /></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -64,7 +65,7 @@ export class Nextbar extends React.Component{
 
     share_twitter(){
         let share_url = "https://twitter.com/intent/tweet?";
-        let text = "Check out this demo from Next 20 Showcase: " + document.location.href;
+        let text = "Check out this demo from Next 20 Showcase: " + this.state.cta;
         let params = `text=${ encodeURIComponent( text ) }`;
         window.open( `${ share_url }${ params }`, "_blank", "scrollbar=0,height=253,width=600" );
     }
@@ -74,12 +75,12 @@ export class Nextbar extends React.Component{
     share_facebook(){
         let share_url = "https://www.facebook.com/dialog/share?";
         let facebookid = "2290016707907300";
-        let params = `app_id=${ facebookid }&display=popup&href=${ encodeURIComponent( document.location.href ) }`;
+        let params = `app_id=${ facebookid }&display=popup&href=${ encodeURIComponent( this.state.cta ) }`;
         window.open( share_url + params, "_blank", "height=500,width=700" );
     }
     
     share_linkedin(){
-        let url = document.location.href;
+        let url = this.state.cta;
         let title = "Next 20 Showcase";
         let text = "Check out this demo from Next 20 Showcase";
         window.open('http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(url), '', 'left=0,top=0,width=650,height=420,personalbar=0,toolbar=0,scrollbars=0,resizable=0');
@@ -88,7 +89,7 @@ export class Nextbar extends React.Component{
     
     share_copy(){
         let dummy = document.createElement('input'),
-            text = window.location.href;
+            text = this.state.cta;
         document.body.appendChild(dummy);
         dummy.value = text;
         dummy.select();

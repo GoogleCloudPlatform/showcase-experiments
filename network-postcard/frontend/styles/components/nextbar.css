@@ -35,6 +35,7 @@
     position: relative;
     top: 16px;
     left: 30px;
+    cursor: pointer;
 }
 
 .next20banner .logotext{
@@ -81,6 +82,10 @@
     display: inline-block;
     top: 50px;
     right: 170px;
+}
+
+.next20banner .cta .share_box tr{
+    cursor: pointer;
 }
 
 .next20banner .cta .share_box th{
