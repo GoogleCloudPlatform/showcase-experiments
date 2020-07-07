@@ -35,7 +35,7 @@ export class Nextbar extends React.Component{
                 <div className={styles.title}>
                     <img className={styles.icon} src={iconImg} />
                     <img className={styles.lockup} src={textImg} />
-                    <span className={styles.logotext}>Next '20</span>
+                    <span className={styles.logotext}>Next</span>
                 </div>
                 <div className={styles.cta}>
                     <img className={styles.share} height="24" width="24" src={shareImg} onClick={() => this.setState({ showShare: !showShare })}/>
