@@ -24,7 +24,7 @@ import linkedinImg from "../../assets/nextbar/linkedin.svg";
 import copyImg from "../../assets/nextbar/copy.svg";
 
 export class Nextbar extends React.Component{
-    ctaurl = "https://cloud.withgoogle.com/next/sf/next/sf/demos?demo=302";
+    ctaurl = "https://cloud.withgoogle.com/next/sf/demos?demo=302";
     state = { showShare: false, cta: this.ctaurl, ctaText: "Try Cloud Vision" };
     
     
