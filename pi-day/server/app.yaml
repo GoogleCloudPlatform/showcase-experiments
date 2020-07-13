@@ -22,4 +22,5 @@ handlers:
 
 # All URLs are handled by the Go application script
 - url: /.*
-  static_files: /index.html
+  static_files: index.html
+  upload: index.html
