@@ -121,6 +121,7 @@ func (r descsByName) initFieldsFromDescriptorProto(fds []*descriptorpb.FieldDesc
 		if f.L0, err = r.makeBase(f, parent, fd.GetName(), i, sb); err != nil {
 			return nil, err
 		}
+		f.L1.IsProto3Optional = fd.GetProto3Optional()
 		if opts := fd.GetOptions(); opts != nil {
 			opts = proto.Clone(opts).(*descriptorpb.FieldOptions)
 			f.L1.Options = func() protoreflect.ProtoMessage { return opts }
@@ -134,7 +135,7 @@ func (r descsByName) initFieldsFromDescriptorProto(fds []*descriptorpb.FieldDesc
 			f.L1.Kind = protoreflect.Kind(fd.GetType())
 		}
 		if fd.JsonName != nil {
-			f.L1.JSONName.Init(fd.GetJsonName())
+			f.L1.StringName.InitJSON(fd.GetJsonName())
 		}
 	}
 	return fs, nil
@@ -174,7 +175,7 @@ func (r descsByName) initExtensionDeclarations(xds []*descriptorpb.FieldDescript
 			x.L1.Kind = protoreflect.Kind(xd.GetType())
 		}
 		if xd.JsonName != nil {
-			x.L2.JSONName.Init(xd.GetJsonName())
+			x.L2.StringName.InitJSON(xd.GetJsonName())
 		}
 	}
 	return xs, nil
